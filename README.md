@@ -5,7 +5,7 @@ Make sure you have a version of cmake is installed. You can either run the docke
  1.  sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ jammy main'
  2.  sudo apt update &&  sudo apt install cmake
  
-To run openpose from inside the docker:
+After you place the images in `image_in` folder inside docker, run openpose from inside:
 
     cd openpose
     ./build/examples/openpose/openpose.bin --image_dir ../image_in --hand --disable_blending --display 0 --writ
