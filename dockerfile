@@ -23,7 +23,6 @@ RUN python -m pip install -e detectron2_modified
 WORKDIR /workspace/detectron2_modified/projects/DensePose
 RUN pip install av>=8.0.3 scipy>=1.5.4
 RUN pip install opencv-contrib-python==4.5.5.62
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN wget https://dl.fbaipublicfiles.com/densepose/densepose_rcnn_R_50_FPN_s1x/165712039/model_final_162be9.pkl
 WORKDIR /workspace
 RUN conda create -n cihp python=3.7
@@ -44,7 +43,6 @@ SHELL ["conda", "run", "--no-capture-output", "-n", "cloth_mask", "/bin/bash", "
 WORKDIR /workspace
 RUN pip install carvekit_colab
 RUN pip install opencv-python==4.5.5.64
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN python -c "from carvekit.ml.files.models_loc import download_all;download_all();"
 ADD mask.py mask.py
 RUN deactivate
@@ -52,7 +50,6 @@ SHELL ["/bin/bash", "-c"]
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libopencv-dev
 RUN apt -qq install -y libatlas-base-dev libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler libgflags-dev libgoogle-glog-dev liblmdb-dev opencl-headers ocl-icd-opencl-dev libviennacl-dev
 RUN apt -y install libboost-filesystem-dev build-essential libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 RUN git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git 
 WORKDIR "/workspace/openpose"
 RUN git submodule update --init --recursive --remote
