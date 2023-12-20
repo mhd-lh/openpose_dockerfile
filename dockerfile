@@ -68,3 +68,4 @@ WORKDIR "/workspace"
 RUN pip install Pillow tqdm
 ADD human_agnostic.py human_agnostic.py
 ADD parse_agnostic.py parse_agnostic.py
+RUN ldconfig
