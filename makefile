@@ -1,8 +1,8 @@
 build:
-	docker build -t openpose .
+	docker build -t our_project .
 run:
-	docker run -it -d --rm --gpus all --name openpose openpose
+	docker run -it -d --rm --name our_project our_project
 attach:
-	docker exec -it openpose bash
+	docker exec -it our_project bash
 stop:
-	docker container stop openpose
+	docker container stop our_project
