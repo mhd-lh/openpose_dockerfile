@@ -21,7 +21,7 @@ POSTPROCESSING_METHOD = "fba" #param ["fba", "none"]
 SEGMENTATION_MASK_SIZE = 640 #param ["640", "320"] {type:"raw", allow-input: true}
 TRIMAP_DILATION = 30 #param {type:"integer"}
 TRIMAP_EROSION = 5 #param {type:"integer"}
-DEVICE = 'cpu' # 'cuda'
+DEVICE = 'cuda'
 
 config = MLConfig(segmentation_network=SEGMENTATION_NETWORK,
                   preprocessing_method=PREPROCESSING_METHOD,
@@ -34,7 +34,7 @@ config = MLConfig(segmentation_network=SEGMENTATION_NETWORK,
 interface = init_interface(config)
 
 imgs = []
-root = '/workspace/data/cloth'
+root = '/workspace/dataset/cloth'
 for name in os.listdir(root):
     imgs.append(root + '/' + name)
 
